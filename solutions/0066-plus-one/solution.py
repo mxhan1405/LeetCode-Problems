@@ -1,18 +1,13 @@
 class Solution:
-    def plusOne(self, digits: list[int]) -> list[int]:
-        n = len(digits)
-        
-        # Start from the end of the list and move backwards
-        for i in range(n - 1, -1, -1):
-            # If the current digit is less than 9, just increment and return
+    def plusOne(self, digits: List[int]) -> List[int]:
+        # Loop backwards through the digits
+        for i in reversed(range(len(digits))):
             if digits[i] < 9:
                 digits[i] += 1
-                return digits
+                return digits  # Done! Return immediately
             
-            # If the digit is 9, it becomes 0 (carry the 1 to the next iteration)
-            digits[i] = 0
+            digits[i] = 0  # It was a 9, so turn it to 0 and carry over
             
-        # If we exit the loop, it means we had a carry for the most significant digit
-        # (e.g., [9, 9] -> [0, 0]). We need to add 1 at the beginning.
+        # If all digits were 9s (e.g., 99 -> 00), put a 1 at the front
         return [1] + digits
 
