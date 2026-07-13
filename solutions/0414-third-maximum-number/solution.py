@@ -1,8 +1,10 @@
 class Solution:
-    def thirdMax(self, nums: list[int]) -> int:
-        # Get distinct numbers only
-        unique_nums = sorted(list(set(nums)), reverse=True)
-        
-        # If 3 or more exist, return the third one; otherwise, return the first (max)
-        return unique_nums[2] if len(unique_nums) >= 3 else unique_nums[0]
+    def thirdMax(self, nums: List[int]) -> int:
+        a=set(nums)
+        s=sorted(a)
+        if len(s)<3:
+            return max(s)
 
+        else:
+            return s[-3]
+            
