@@ -1,16 +1,13 @@
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        # Initialize the minimum price to a very high value
-        # and the maximum profit to 0
-        min_price = float('inf')
-        max_profit = 0
+        min_price = float('inf')  # Start with an insanely high price
+        max_profit = 0            # Start with zero profit
         
         for price in prices:
-            # Update min_price if the current price is lower
+            # 1. Track the lowest price we have seen so far
             if price < min_price:
                 min_price = price
-            # Calculate profit if we sold at the current price
-            # and update max_profit if it's the highest seen so far
+            # 2. Check if selling today beats our best recorded profit
             elif price - min_price > max_profit:
                 max_profit = price - min_price
                 
